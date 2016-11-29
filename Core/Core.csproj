@@ -7,8 +7,8 @@
     <ProjectGuid>{87AB3435-9C76-44A9-8B48-8B6033B9FB70}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core</RootNamespace>
-    <AssemblyName>Core</AssemblyName>
+    <RootNamespace>DeepComparison.Json</RootNamespace>
+    <AssemblyName>DeepComparison.Json</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComparisonResult.cs" />
+    <Compile Include="EnumerableExt.cs" />
+    <Compile Include="JsonComparer.cs" />
+    <Compile Include="JsonComparerBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
