@@ -15,17 +15,17 @@ namespace DeepComparison.Json
             while (xEr.MoveNext())
             {
                 if (!yEr.MoveNext())
-                    return new ComparisonResult(
+                    return 
                         $"Second collection lacks an item: {xEr.Current}, " +
-                        $"and {Count(xEr)} more; First {counter} items matched though");
+                        $"and {Count(xEr)} more; First {counter} items matched though";
                 var c = compare(xEr.Current, yEr.Current);
                 if (!c.AreEqual)
                     return c;
                 counter++;
             }
             if (yEr.MoveNext())
-                return new ComparisonResult($"First collection lacks an item {yEr.Current}, " +
-                        $"and {Count(yEr)} more; First {counter} items matched though");
+                return $"First collection lacks an item {yEr.Current}, " +
+                        $"and {Count(yEr)} more; First {counter} items matched though";
             return ComparisonResult.True;
         }
 

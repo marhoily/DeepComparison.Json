@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Reflection;
 
 namespace DeepComparison.Json
 {
@@ -13,19 +12,13 @@ namespace DeepComparison.Json
         /// <summary>Comparer that was used and the compared values</summary>
         public string Message { get; }
         /// <summary>ctor</summary>
-        public ComparisonResult(bool areEqual) { AreEqual = areEqual; }
+        private ComparisonResult(bool areEqual) { AreEqual = areEqual; }
         /// <summary>ctor</summary>
-        public ComparisonResult(string message) { Message = message; }
+        private ComparisonResult(string message) { Message = message; }
 
         public static readonly ComparisonResult True = new ComparisonResult(true);
         /// <summary>False</summary>
         public static implicit operator ComparisonResult (string s) => new ComparisonResult(s);
-
-        internal ComparisonResult WithPath(PropertyInfo propertyInfo)
-        {
-            Path.Add(propertyInfo.Name);
-            return this;
-        }
 
         /// <summary>pretty prints the result</summary>
         public override string ToString()

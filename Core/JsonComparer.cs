@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json.Linq;
+using static DeepComparison.Json.ComparisonResult;
 
 namespace DeepComparison.Json
 {
@@ -25,13 +26,13 @@ namespace DeepComparison.Json
                 case JTokenType.Object:
                     return CompareObject(j.Value<JObject>(), a, context);
                 case JTokenType.Array:
-                    if (!(a is IEnumerable)) return new ComparisonResult("not an array");
+                    if (!(a is IEnumerable)) return "not an array";
                     return CompareArray(j.Value<JArray>(), (IEnumerable)a, context);
                 case JTokenType.Comment:
                     break;
                 case JTokenType.Null:
                     if (a == null) break;
-                    return new ComparisonResult($"{context}: <null> != {JToken.FromObject(a)}");
+                    return $"{context}: <null> != {JToken.FromObject(a)}";
                 case JTokenType.Undefined:
                 case JTokenType.Raw:
                 case JTokenType.Bytes:
@@ -39,12 +40,12 @@ namespace DeepComparison.Json
                 default:
                     var left = j.ToString();
                     if (a == null)
-                        return new ComparisonResult($"{context}: {left} != <null>");
+                        return $"{context}: {left} != <null>";
                     var right = JToken.FromObject(a).ToString();
                     if (left == right) break;
-                    return new ComparisonResult($"{context}: {left} != {right}");
+                    return $"{context}: {left} != {right}";
             }
-            return ComparisonResult.True;
+            return True;
         }
 
         private ComparisonResult CompareArray(JArray j, IEnumerable a, string context)
@@ -65,15 +66,15 @@ namespace DeepComparison.Json
                     var subject = CheckIfAnonymousType(a.GetType())
                         ? "properties of an anonymous object:\r\n"
                         : $"properties of type {a.GetType().FullName}:\r\n";
-                    return new ComparisonResult(
+                    return
                         $"property {property.Name} is not found among {subject}" +
-                        string.Join(", ", properties.Select(p => p.Name)));
+                        string.Join(", ", properties.Select(p => p.Name));
                 }
                 var result = CompareToken(property.Value,
                     match.GetValue(a), context + "." + property.Name);
-                if (result != ComparisonResult.True) return result;
+                if (result != True) return result;
             }
-            return ComparisonResult.True;
+            return True;
         }
 
         private static bool CheckIfAnonymousType(Type type)
