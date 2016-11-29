@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 
-namespace DeepComparison
+namespace DeepComparison.Json
 {
     /// <summary>Combines result of comparison with the description of what did not compare </summary>
     public sealed class ComparisonResult

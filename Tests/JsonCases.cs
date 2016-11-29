@@ -1,5 +1,5 @@
 ﻿using System;
-using DeepComparison;
+using DeepComparison.Json;
 using FluentAssertions;
 using Newtonsoft.Json.Linq;
 using Xunit;

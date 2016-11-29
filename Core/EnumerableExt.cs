@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
-using static DeepComparison.ComparisonResult;
 
-namespace DeepComparison
+namespace DeepComparison.Json
 {
     using FCompare = Func<object, object, ComparisonResult>;
 
@@ -27,7 +26,7 @@ namespace DeepComparison
             if (yEr.MoveNext())
                 return new ComparisonResult($"First collection lacks an item {yEr.Current}, " +
                         $"and {Count(yEr)} more; First {counter} items matched though");
-            return True;
+            return ComparisonResult.True;
         }
 
         private static int Count(IEnumerator xErr)

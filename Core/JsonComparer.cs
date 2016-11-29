@@ -3,10 +3,9 @@ using System.Collections;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using DeepComparison;
 using Newtonsoft.Json.Linq;
 
-namespace Tests
+namespace DeepComparison.Json
 {
     public class JsonComparer
     {
