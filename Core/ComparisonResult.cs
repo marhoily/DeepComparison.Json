@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace DeepComparison.Json
 {
@@ -7,8 +7,6 @@ namespace DeepComparison.Json
     {
         /// <summary>True if objects are equal</summary>
         public bool AreEqual { get; }
-        /// <summary>Path to the property that does not compare</summary>
-        public List<string> Path { get; } = new List<string>();
         /// <summary>Comparer that was used and the compared values</summary>
         public string Message { get; }
         /// <summary>ctor</summary>
@@ -21,7 +19,7 @@ namespace DeepComparison.Json
         public static implicit operator ComparisonResult (string s) => new ComparisonResult(s);
 
         /// <summary>pretty prints the result</summary>
-        public override string ToString()
-            => $"{string.Join(".", Path)}: {Message}";
+        [ExcludeFromCodeCoverage]
+        public override string ToString()=> Message;
     }
 }
