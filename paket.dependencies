@@ -2,3 +2,26 @@ source https://api.nuget.org/v3/index.json
 framework >= net452
 
 nuget Newtonsoft.Json
+
+group Test
+	source https://api.nuget.org/v3/index.json
+	framework >= net452
+
+	nuget xunit
+	nuget ApiShape
+	nuget FluentAssertions
+	nuget ApprovalTests
+	nuget NCrunch.Framework
+
+group Build
+	source https://api.nuget.org/v3/index.json
+
+	nuget FAKE
+	nuget xunit.runner.console 
+	nuget JetBrains.ReSharper.CommandLineTools
+
+group Benchmark
+	source https://api.nuget.org/v3/index.json
+	framework >= net452
+
+	nuget BenchmarkDotNet

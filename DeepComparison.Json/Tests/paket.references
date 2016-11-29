@@ -1,0 +1,8 @@
+﻿Newtonsoft.Json
+
+group Test
+	xunit
+	ApiShape
+	FluentAssertions
+	ApprovalTests
+	NCrunch.Framework
