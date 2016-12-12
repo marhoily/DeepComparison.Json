@@ -1,12 +1,19 @@
-version: 0.{build}
+assembly_info:
+  patch: false
+build_script:
+  build.bat
 
-before_build:
-  - ps: ./build pack minor="{version}"
-
-build: off
-
-artifacts:
-  - path: '*.nupkg'
+test: off
+#
+#version: 0.{build}
+#
+#before_build:
+#  - ps: ./build pack minor="{version}"
+#
+#build: off
+#
+#artifacts:
+#  - path: '*.nupkg'
 
 deploy:
   provider: NuGet
