@@ -10,18 +10,18 @@ group Test
 	nuget xunit
 	nuget ApiShape
 	nuget FluentAssertions
-	nuget ApprovalTests
-	nuget NCrunch.Framework
+//	nuget ApprovalTests
+//	nuget NCrunch.Framework
 
 group Build
 	source https://api.nuget.org/v3/index.json
 
 	nuget FAKE
 	nuget xunit.runner.console 
-	nuget JetBrains.ReSharper.CommandLineTools
+//	nuget JetBrains.ReSharper.CommandLineTools
 
-group Benchmark
-	source https://api.nuget.org/v3/index.json
-	framework >= net452
-
-	nuget BenchmarkDotNet
+//group Benchmark
+//	source https://api.nuget.org/v3/index.json
+//	framework >= net452
+//
+//	nuget BenchmarkDotNet
