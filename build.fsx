@@ -7,17 +7,6 @@ open Fake.DotCover
 
 Restore id
 
-let major = "0.1"
-let minor = getBuildParamOrDefault "minor" "0.0"
-let version = major + "." + minor
-
-Target "PatchAssemblyInfo" (fun _ ->
-    for file in !! "**/AssemblyInfo.cs" -- "packages/**"  do
-        UpdateAttributes file [ 
-            Attribute.Version version
-            Attribute.FileVersion version]
-)
-
 Target "Clean" (fun _ ->
     for dir in !! "**/bin/" ++ "**/obj/"  do
         CleanDir dir
@@ -72,18 +61,16 @@ Target "Analyse" (fun _ ->
 )
 
 "Clean"
-==> "PatchAssemblyInfo"
 ==> "Build"
 ==> "Test"
 ==> "Pack"
 ==> "Push"
 
 "Clean"
-==> "PatchAssemblyInfo"
 ==> "Build"
 ==> "Benchmark"
 ==> "Cover"
 ==> "ResharperInspect"
 ==> "Analyse"
 
-RunTargetOrDefault "Push"
+RunTargetOrDefault "Pack"

@@ -1,19 +1,16 @@
+version: 1.0.{build}
+
 assembly_info:
-  patch: false
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "{version}"
+  assembly_file_version: "{version}"
+  assembly_informational_version: "{version}"
+
 build_script:
   build.bat
 
 test: off
-#
-#version: 0.{build}
-#
-#before_build:
-#  - ps: ./build pack minor="{version}"
-#
-#build: off
-#
-#artifacts:
-#  - path: '*.nupkg'
 
 deploy:
   provider: NuGet
