@@ -1,4 +1,4 @@
-before_build:
+build:
   - ps: ./build pack minor="{build}"
 
 artifacts:
