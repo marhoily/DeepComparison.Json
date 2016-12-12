@@ -13,7 +13,6 @@ GROUP Test
 FRAMEWORK: >= NET452
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    ApiShape (1.0.11)
     FluentAssertions (4.18)
     xunit (2.1)
       xunit.assert (2.1)
