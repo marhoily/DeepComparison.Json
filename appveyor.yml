@@ -1,5 +1,7 @@
-build:
+before_build:
   - ps: ./build pack minor="{build}"
+
+build: off
 
 artifacts:
   - path: '*.nupkg'
