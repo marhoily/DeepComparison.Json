@@ -58,7 +58,7 @@ Target "ResharperInspect" (fun _ ->
 
 Target "Pack" (fun _ ->
     Pack  (fun cfg ->
-       { cfg with Symbols = true }
+       { cfg with Symbols = false }
     ))
 
 Target "Push" (fun _ ->
