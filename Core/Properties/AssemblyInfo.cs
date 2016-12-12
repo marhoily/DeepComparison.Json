@@ -1,6 +1,7 @@
 using System.Reflection;
 
 [assembly: AssemblyTitle("DeepComparisong.Json")]
+[assembly: AssemblyCompany("Ilya Margolin")]
 [assembly: AssemblyDescription(
     "Compares newtonsoft JToken objects with CLR objects (including anonymous)")]
 
