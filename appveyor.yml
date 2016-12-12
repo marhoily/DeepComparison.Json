@@ -1,5 +1,7 @@
+version: {build}
+
 before_build:
-  - ps: ./build pack minor="{build}"
+  - ps: ./build pack minor="{version}"
 
 build: off
 
