@@ -10,7 +10,7 @@ assembly_info:
 build_script:
   build.bat
 
-afer_build:
+after_build:
   - ps: dir
 
 test: off
