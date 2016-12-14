@@ -10,6 +10,9 @@ assembly_info:
 build_script:
   build.bat
 
+afer_build:
+  - ps: dir
+
 test: off
 
 deploy:
